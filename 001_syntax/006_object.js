@@ -8,6 +8,12 @@
  */
 
 function getPersonObject() {
+  const obj = {
+    name: 'Bob',
+    age: 32,
+    gender: 'male',
+  };
+  return obj;
 }
 
 /**
@@ -24,8 +30,7 @@ function getPersonObject() {
  *
  */
 
-function mutateObject(person) {
-}
+function mutateObject(person) {}
 
 /**
  *  6.3 下記引数で渡される配列にランダムな1 ~10の数字を割り振り、オブジェクトとして返す
@@ -48,8 +53,7 @@ function mutateObject(person) {
  *
  */
 
-function assignNumber(persons) {
-}
+function assignNumber(persons) {}
 
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
@@ -62,12 +66,11 @@ function assignNumber(persons) {
  *
  */
 
-function isDuplicate(array) {
-}
+function isDuplicate(array) {}
 
 module.exports = {
   getPersonObject,
   mutateObject,
   assignNumber,
-  isDuplicate
-}
+  isDuplicate,
+};

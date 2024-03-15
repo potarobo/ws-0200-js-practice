@@ -53,9 +53,8 @@ function subtractTwoArgs(a, b) {
  *
  */
 function quotientTwoArgs(a, b) {
-  if (a === 0 || b === 0) {
-    const x = null;
-    return x;
+  if (b === 0) {
+    return null;
   } else {
     return Math.floor(a / b);
   }

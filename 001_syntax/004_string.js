@@ -4,7 +4,11 @@
  */
 
 function length(str) {
-  return str.length;
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  return count;
 }
 
 /**
@@ -13,7 +17,11 @@ function length(str) {
  */
 
 function lengthIsEven(str) {
-  return str.length % 2 === 0;
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  return count % 2 === 0;
 }
 
 /**
@@ -22,7 +30,10 @@ function lengthIsEven(str) {
  */
 
 function firstChar(str) {
-  return str.charAt(0);
+  if (!str) {
+    return '';
+  }
+  return str[0];
 }
 
 /**
@@ -31,9 +42,15 @@ function firstChar(str) {
  */
 
 function lastChar(str) {
-  return str.slice(-1);
+  if (!str) {
+    return '';
+  }
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  return str[count - 1];
 }
-
 /**
  *  4.5 文字列と二つの数字a, bを渡すとa文字目から, b文字目まで
  *  を返却するメソッドを実装してください
@@ -41,8 +58,32 @@ function lastChar(str) {
  */
 
 function substring(str, a, b) {
-  return str.substring(a - 1, b);
+  // if (!str) {
+  //   return '';
+  // }
+  // let count = 0;
+  // while (str[count]) {
+  //   count++;
+  // }
+  // let text = '';
+  // for (let i = a - 1; i < b; i++) {
+  //   if (b > count) {
+  //     b = count;
+  //   }
+  //   text += str[i];
+  // }
+  // return text;
+  if (!str) {
+    return '';
+  }
+  let end = b > str.length ? str.length : b;
+  let text = '';
+  for (let i = a - 1; i < end; i++) {
+    text += str[i];
+  }
+  return text;
 }
+substring('abcdef', 2, 7);
 
 /**
  *  4.6 引数に与えられた二つの引数のうち、一つ目の引数の文字列に二つ目の引数の文字列が
@@ -56,8 +97,18 @@ function substring(str, a, b) {
  * */
 
 function isInclude(a, b) {
-  return a.includes(b);
+  if (b === '') {
+    return true;
+  }
+  for (let i = 0; i < b.length; i++) {
+    if (a[i] === b[i]) {
+      return true;
+    }
+  }
+
+  return false;
 }
+isInclude('workplace', 'orm');
 
 /**
  *  4.7 引数で渡された文字列を一文字ずつ表示するメソッドを実装してください
@@ -75,8 +126,11 @@ function isInclude(a, b) {
  */
 
 function printByChar(str) {
-  const a = str.length;
-  for (let i = 0; i < a; i++) {
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  for (let i = 0; i < count; i++) {
     console.log(str[i]);
   }
 }
