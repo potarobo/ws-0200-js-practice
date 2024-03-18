@@ -19,33 +19,27 @@ function getPersonObject() {
 /**
  *  6.2 下記データAが引数で与えられた場合にデータBに書き換える関数を実装してください。
  *
- Data A:
-     name: 'Bob'
-    age: 32
-     gender: 'male'
-   Data B:
-     name: 'Mary'
-     age: 37
-     gender: 'female'
+ *  Data A:
+ *    name: 'Bob'
+ *    age: 32
+ *    gender: 'male'
+ *  Data B:
+ *    name: 'Mary'
+ *    age: 37
+ *    gender: 'female'
  *
  */
 
 function mutateObject(person) {
-  const obj = {
-    name: 'Bob',
-    age: 32,
-    gender: 'male',
-  };
+  const obj = person;
   obj.name = 'Mary';
   obj.age = 37;
   obj.gender = 'female';
-  return console.log(obj);
+  return obj;
 }
-mutateObject(person);
 
 /**
- *  6.3 下記引数で渡される配列にランダムな1 ~10の数字を割り振り、オブジェクトとして返す
- *      関数を実装してください
+ *  6.3 下記引数で渡される配列にランダムな1 ~10の数字を割り振り、オブジェクトとして返す関数を実装してください
  *
  *    [
  *      'Bob',
@@ -57,14 +51,23 @@ mutateObject(person);
  *   output:
  *     {
  *       Bob: [Random Number],
- *       Mary: [Random Number],
- *       Ann: [Random Number],
+ *        Mary: [Random Number],
+ *        Ann: [Random Number],
  *       Mike: [Random Number]
  *     }
  *
  */
 
-function assignNumber(persons) {}
+function assignNumber(persons) {
+  const array = persons;
+  const obj = {};
+  array.forEach((arr) => {
+    debugger;
+    obj[arr] = Math.floor(Math.random() * 10) + 1;
+  });
+  return obj;
+}
+// assignNumber(['Bob', 'Mary', 'Ann', 'Mike']);
 
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
