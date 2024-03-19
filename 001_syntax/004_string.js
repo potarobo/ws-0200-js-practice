@@ -4,6 +4,11 @@
  */
 
 function length(str) {
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  return count;
 }
 
 /**
@@ -12,6 +17,11 @@ function length(str) {
  */
 
 function lengthIsEven(str) {
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  return count % 2 === 0;
 }
 
 /**
@@ -20,6 +30,10 @@ function lengthIsEven(str) {
  */
 
 function firstChar(str) {
+  if (!str) {
+    return '';
+  }
+  return str[0];
 }
 
 /**
@@ -28,8 +42,15 @@ function firstChar(str) {
  */
 
 function lastChar(str) {
+  if (!str) {
+    return '';
+  }
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  return str[count - 1];
 }
-
 /**
  *  4.5 文字列と二つの数字a, bを渡すとa文字目から, b文字目まで
  *  を返却するメソッドを実装してください
@@ -37,7 +58,32 @@ function lastChar(str) {
  */
 
 function substring(str, a, b) {
+  // if (!str) {
+  //   return '';
+  // }
+  // let count = 0;
+  // while (str[count]) {
+  //   count++;
+  // }
+  // let text = '';
+  // for (let i = a - 1; i < b; i++) {
+  //   if (b > count) {
+  //     b = count;
+  //   }
+  //   text += str[i];
+  // }
+  // return text;
+  if (!str) {
+    return '';
+  }
+  let end = b > str.length ? str.length : b;
+  let text = '';
+  for (let i = a - 1; i < end; i++) {
+    text += str[i];
+  }
+  return text;
 }
+substring('abcdef', 2, 7);
 
 /**
  *  4.6 引数に与えられた二つの引数のうち、一つ目の引数の文字列に二つ目の引数の文字列が
@@ -51,6 +97,25 @@ function substring(str, a, b) {
  * */
 
 function isInclude(a, b) {
+  if (b === '') {
+    return true;
+  }
+  for (let i = 0; i < b.length; i++) {
+    let char = b[0];
+    if (a[i] === char) {
+      for (let j = 1; j < b.length; j++) {
+        char = b[j];
+        if (a[i + j] !== char) {
+          break;
+        }
+        if (j === b.length - 1) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
 }
 
 /**
@@ -69,8 +134,14 @@ function isInclude(a, b) {
  */
 
 function printByChar(str) {
+  let count = 0;
+  while (str[count]) {
+    count++;
+  }
+  for (let i = 0; i < count; i++) {
+    console.log(str[i]);
+  }
 }
-
 
 module.exports = {
   length,
@@ -79,5 +150,5 @@ module.exports = {
   lastChar,
   substring,
   isInclude,
-  printByChar
-}
+  printByChar,
+};
