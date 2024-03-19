@@ -62,12 +62,12 @@ function assignNumber(persons) {
   const array = persons;
   const obj = {};
   array.forEach((arr) => {
-    debugger;
     obj[arr] = Math.floor(Math.random() * 10) + 1;
+    console.log(arr);
   });
   return obj;
 }
-// assignNumber(['Bob', 'Mary', 'Ann', 'Mike']);
+assignNumber(['Bob', 'Mary', 'Ann', 'Mike']);
 
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
@@ -81,13 +81,11 @@ function assignNumber(persons) {
  */
 
 function isDuplicate(array) {
-  const obj = {};
-
-  for (const item of array) {
-    if (obj[item]) {
-      return true;
-    } else {
-      obj[item] = true;
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] === array[j]) {
+        return true;
+      }
     }
   }
   return false;
