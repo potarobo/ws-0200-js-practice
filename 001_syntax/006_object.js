@@ -32,9 +32,9 @@ function getPersonObject() {
 
 function mutateObject(person) {
   const obj = person;
-  obj.name = 'Mary';
-  obj.age = 37;
-  obj.gender = 'female';
+  person.name = 'Mary';
+  person.age = 37;
+  person.gender = 'female';
   return obj;
 }
 
@@ -62,8 +62,8 @@ function assignNumber(persons) {
   const array = persons;
   const obj = {};
   array.forEach((arr) => {
-    obj[arr] = Math.floor(Math.random() * 10) + 1;
     console.log(arr);
+    obj[arr] = Math.floor(Math.random() * 10) + 1;
   });
   return obj;
 }
@@ -80,12 +80,28 @@ assignNumber(['Bob', 'Mary', 'Ann', 'Mike']);
  *
  */
 
+// function isDuplicate(array) {
+//   const obj = {};
+//   for (let i = 0; i < array.length; i++) {
+//     const value = array[i];
+//     if (!obj[value]) {
+//       obj[value] = 1;
+//     } else {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+// isDuplicate([1, 2, 2, 3]);
+
 function isDuplicate(array) {
-  for (let i = 0; i < array.length - 1; i++) {
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[i] === array[j]) {
-        return true;
-      }
+  const object = {};
+
+  for (const item of array) {
+    if (object[item]) {
+      return true;
+    } else {
+      object[item] = true;
     }
   }
   return false;
