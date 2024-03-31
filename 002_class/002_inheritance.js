@@ -35,20 +35,20 @@ class Animal {
 /* ↓ ↓ ↓ こちらに実装 */
 class Dog extends Animal {
   type = 'dog';
-  constructor() {
-    super();
+  bark() {
+    return console.log('wang, wang!');
   }
 }
 class Duck extends Animal {
   type = 'duck';
-  constructor() {
-    super();
+  bark() {
+    return console.log('quack, quack!');
   }
 }
 class Chicken extends Animal {
   type = 'chicken';
-  constructor() {
-    super();
+  bark() {
+    return console.log('cock-a-doodle-do!');
   }
 }
 
