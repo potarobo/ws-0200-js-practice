@@ -1,4 +1,3 @@
-
 /**
  *  継承
  *
@@ -18,42 +17,60 @@
  */
 
 class Animal {
-  type = 'animal'
+  type = 'animal';
 
   breeth() {
-    console.log('breezing')
+    console.log('breezing');
   }
 
   who() {
-    console.log(this.type)
+    console.log(this.type);
   }
 
   bark() {
-    throw Error('not implemented')
+    throw Error('not implemented');
   }
 }
 
 /* ↓ ↓ ↓ こちらに実装 */
+class Dog extends Animal {
+  type = 'dog';
+  constructor() {
+    super();
+  }
+}
+class Duck extends Animal {
+  type = 'duck';
+  constructor() {
+    super();
+  }
+}
+class Chicken extends Animal {
+  type = 'chicken';
+  constructor() {
+    super();
+  }
+}
 
 /* ↑ ↑ ↑ こちらに実装 */
 
-function main () {
-  const dog = new Dog()
-  const duck = new Duck()
-  const chicken = new Chicken()
+function main() {
+  const dog = new Dog();
+  const duck = new Duck();
+  const chicken = new Chicken();
 
-  dog.who()
-  duck.who()
-  chicken.who()
+  dog.who();
+  duck.who();
+  chicken.who();
 
-  dog.bark()
-  duck.bark()
-  chicken.bark()
+  dog.bark();
+  duck.bark();
+  chicken.bark();
 }
 
 module.exports = {
   main,
   Chicken,
   Dog,
-  Duck
-}
+  Duck,
+};
