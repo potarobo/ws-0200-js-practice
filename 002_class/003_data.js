@@ -27,6 +27,7 @@ class List {
    */
   get size() {
     // TODO:
+    return this.data.length;
   }
 
   /** 引数で渡された添字のデータを取得する
@@ -36,6 +37,7 @@ class List {
    */
   index(index) {
     // TODO:
+    return this.data[index];
   }
 
   /** リストの 要素を追加する
@@ -45,6 +47,7 @@ class List {
    */
   push(item) {
     // TODO:
+    return this.data.push(item);
   }
 
   /** 与えられた引数により、リストの 要素を削除する
@@ -54,6 +57,7 @@ class List {
    */
   remove(targetIndex) {
     // TODO:
+    return this.data.splice(targetIndex - 1, 1);
   }
 
   /** リストの 末尾の要素を取得する
@@ -63,6 +67,7 @@ class List {
    */
   pop() {
     // TODO:
+    return this.data.pop();
   }
 
   /** リストの 先頭の要素を取得する
@@ -71,6 +76,7 @@ class List {
    */
   shift() {
     // TODO:
+    return this.data.shift();
   }
 
   /** リストの の中から引数に合致する値を取得する
@@ -82,6 +88,15 @@ class List {
    */
   find(target) {
     // TODO:
+    let j = target;
+    for (let i = 0; i < this.data.length; i++) {
+      for (let j = i + 1; j < this.data.length; j++) {
+        if (i === j) {
+          return i;
+        }
+      }
+    }
+    return false;
   }
 
   /** リストの の中から引数に合致する値のindexを取得する。見つからない場合は-1を返す
@@ -207,5 +222,5 @@ class Queue {
 module.exports = {
   List,
   Stack,
-  Queue
+  Queue,
 };
