@@ -126,14 +126,13 @@ class List {
    */
   filter(target) {
     // TODO:
-    let result = this.data;
-    console.log(result);
-    for (let i = 0; i < result.length; i++) {
-      if (result[i] === target) {
-        let num = result.splice(target, 1);
-        return num[0];
+    let result = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i] !== target) {
+        result.push(this.data[i]);
       }
     }
+    return new List(result);
   }
 }
 
