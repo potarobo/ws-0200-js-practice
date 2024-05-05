@@ -10,6 +10,10 @@
  *
  */
 function rotate(str, num) {
+  let arr1 = str.slice(-num);
+  let arr2 = str.slice(0, -num);
+  let result = arr1 + arr2;
+  return result;
 }
 
 /**
@@ -24,6 +28,14 @@ function rotate(str, num) {
  *
  */
 function removeVowels(str) {
+  let vowels = ['a', 'i', 'u', 'e', 'o'];
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (!vowels.includes(str[i])) {
+      result += str[i];
+    }
+  }
+  return result;
 }
 
 /**
@@ -38,7 +50,15 @@ function removeVowels(str) {
  *
  */
 function countStr(s1, s2) {
+  let count = 0;
+  for (let i = 0; i < s1.length; i++) {
+    if (s1.match(s2)) {
+      count = i;
+    }
+  }
+  return count;
 }
+// countStr('abcdabeabc', 'abc');
 
 /**
  *  引数に与えられたアルファベットの文字列が回文であること
@@ -53,6 +73,17 @@ function countStr(s1, s2) {
  */
 
 function isPalindrome(str) {
+  let result = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i];
+    if (str === result) {
+      return true;
+    }
+  }
+  if (str === '') {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -70,6 +101,24 @@ function isPalindrome(str) {
  *
  */
 function isPrime(num) {
+  // if (num === 2) {
+  //   return true;
+  // } else if (num % 2 === 0 || num % 3 === 0 || num % 5 === 0 || num % 7 === 0 || num === 1) {
+  //   return false;
+  // }
+  // return true;
+  if (num <= 1) {
+    return false;
+  }
+  if (num === 2) {
+    return true;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -88,7 +137,35 @@ function isPrime(num) {
  *
  */
 function sumWithout4andNext(array) {
+  let sum = 0;
+  let skipNext = false;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 4) {
+      skipNext = true;
+    } else if (!skipNext) {
+      sum += array[i];
+    } else {
+      skipNext = false;
+    }
+  }
+  return sum;
 }
+// sumWithout4andNext([1, 4, 3, 4, 5]);
+// let sum = 0;
+// let arr = [];
+// for (let i = 0; i < array.length; i++) {
+//   if (array[i] === 4) {
+//     arr = array.slice(i, i + 2);
+//     // arr = array.splice(i, 2);
+//     console.log(arr);
+//   }
+// }
+
+// for (let j = 0; j < array.length; j++) {
+//   sum += array[j];
+// }
+// return sum;
 
 module.exports = {
   rotate,
@@ -96,5 +173,5 @@ module.exports = {
   countStr,
   isPalindrome,
   isPrime,
-  sumWithout4andNext
-}
+  sumWithout4andNext,
+};

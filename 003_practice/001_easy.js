@@ -51,13 +51,11 @@ function reverse(str) {
 
 function findIndex(str, char) {
   for (let i = 0; i <= str.length; i++) {
-    debugger;
     if (str[i] === char) {
       return i;
-    } else if (i >= str.length) {
-      return -1;
     }
   }
+  return -1;
 }
 
 /**
@@ -73,10 +71,14 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
-  let array = [];
-  for (let i = 0; i < a.length; i++) {}
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === b) {
+      let result = i;
+      return a.split(a[i]);
+    }
+  }
 }
-split('library', a);
+
 /**
  *  配列の合計
  *
@@ -162,7 +164,6 @@ function size(array) {
   let count = 0;
   while (array[count]) {
     count++;
-    console.log(count);
   }
   return count;
 }
@@ -182,22 +183,22 @@ function size(array) {
 
 function minMax(array) {
   let max = array[0];
+  let min = array[0];
   for (let i = 1; i < array.length; i++) {
     if (array[i] >= max) {
       max = array[i];
     }
-  }
 
-  let min = array[0];
-  for (let i = 1; i < array.length; i++) {
     if (array[i] <= min) {
       min = array[i];
     }
   }
+
   if (max || min) {
     console.log(`max: ${max}, min: ${min}`);
   }
 }
+
 /**
  *  連番
  *
@@ -231,12 +232,8 @@ function seq(num) {
 
 function omitSeq(num) {
   let array = [];
-  for (let i = 0; i <= num; i++) {
-    if (i % 2 === 0) {
-      continue;
-    } else {
-      array.push(i);
-    }
+  for (let i = 1; i <= num; i = i + 2) {
+    array.push(i);
   }
   return array;
 }
@@ -254,16 +251,16 @@ function omitSeq(num) {
  */
 
 function filter(array, num) {
-  debugger;
-
+  let result = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i] > num) {
-      array.splice(i, 1);
-      i -= 1;
+    if (array[i] <= num) {
+      result.push(array[i]);
     }
   }
-  return array;
+  return result;
 }
+filter([1, 7, 5, 4], 7);
+
 /**
  *  Fizz Buzz
  *
