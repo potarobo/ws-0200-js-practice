@@ -53,12 +53,13 @@ function countStr(s1, s2) {
   let count = 0;
   for (let i = 0; i < s1.length; i++) {
     if (s1.match(s2)) {
-      count = i;
+      s1 = s1.replace(s2, '');
+      count += 1;
     }
   }
   return count;
 }
-// countStr('abcdabeabc', 'abc');
+countStr('abcdabeabc', 'abc');
 
 /**
  *  引数に与えられたアルファベットの文字列が回文であること
