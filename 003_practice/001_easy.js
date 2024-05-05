@@ -259,7 +259,6 @@ function filter(array, num) {
   }
   return result;
 }
-filter([1, 7, 5, 4], 7);
 
 /**
  *  Fizz Buzz
