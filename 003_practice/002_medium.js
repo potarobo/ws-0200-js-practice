@@ -59,7 +59,6 @@ function countStr(s1, s2) {
   }
   return count;
 }
-countStr('abcdabeabc', 'abc');
 
 /**
  *  引数に与えられたアルファベットの文字列が回文であること
