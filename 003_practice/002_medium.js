@@ -138,34 +138,49 @@ function isPrime(num) {
  */
 function sumWithout4andNext(array) {
   let sum = 0;
-  let skipNext = false;
-
+  let count = 0;
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === 4) {
-      skipNext = true;
-    } else if (!skipNext) {
-      sum += array[i];
-    } else {
-      skipNext = false;
+    if (array[i] === 4 && array[i + 1] === 4) {
+      array.splice(i + 2, 1);
+      console.log(`array:${array}`);
+    } else if (array[i] !== 4 && array[i + 1] === 4 && array[i + 2] !== 4) {
+      array.splice(i + 2, 1);
+      console.log(`array:${array}`);
+    } else if (array[i] === 4 && array[i + 1] !== 4) {
+      array.splice(i + 1, 1);
+      console.log(`array:${array}`);
     }
   }
-  return sum;
-}
-// sumWithout4andNext([1, 4, 3, 4, 5]);
-// let sum = 0;
-// let arr = [];
-// for (let i = 0; i < array.length; i++) {
-//   if (array[i] === 4) {
-//     arr = array.slice(i, i + 2);
-//     // arr = array.splice(i, 2);
-//     console.log(arr);
-//   }
-// }
 
-// for (let j = 0; j < array.length; j++) {
-//   sum += array[j];
+  for (let j = 0; j < array.length; j++) {
+    if (array[j] === 4) {
+      count++;
+      console.log(`count:${count}`);
+    }
+  }
+  count *= 4;
+
+  for (let k = 0; k < array.length; k++) {
+    sum += array[k];
+  }
+  return sum - count;
+}
+sumWithout4andNext([4, 4, 1, 2]);
+
+//   let sum = 0;
+//   let skipNext = false;
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === 4) {
+//       skipNext = true;
+//     } else if (!skipNext) {
+//       sum += array[i];
+//     } else {
+//       skipNext = false;
+//     }
+//   }
+//   return sum;
 // }
-// return sum;
 
 module.exports = {
   rotate,

@@ -71,12 +71,14 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === b) {
-      let result = i;
-      return a.split(a[i]);
-    }
-  }
+  return a.split(b);
+
+  // for (let i = 0; i < a.length; i++) {
+  //   if (a[i] === b) {
+  //     let result = i;
+  //     return a.split(a[i]);
+  //   }
+  // }
 }
 
 /**
