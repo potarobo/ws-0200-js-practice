@@ -139,16 +139,24 @@ function isPrime(num) {
 function sumWithout4andNext(array) {
   let sum = 0;
   let count = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === 4 && array[i + 1] === 4) {
-      array.splice(i + 2, 1);
-      console.log(`array:${array}`);
-    } else if (array[i] !== 4 && array[i + 1] === 4 && array[i + 2] !== 4) {
-      array.splice(i + 2, 1);
-      console.log(`array:${array}`);
-    } else if (array[i] === 4 && array[i + 1] !== 4) {
-      array.splice(i + 1, 1);
-      console.log(`array:${array}`);
+
+  const hasArr = array.some((value, index) => {
+    array[index] === 4 && array[index + 1] === 4;
+  });
+
+  if (hasArr) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === 4 && array[i + 1] === 4) {
+        array.splice(i + 2, 1);
+        console.log(`array:${array}`);
+      }
+    }
+  } else {
+    for (let l = 0; l < array.length; l++) {
+      if (array[l] === 4 && array[l + 1] !== 4) {
+        array.splice(l + 1, 1);
+        console.log(`array:${array}`);
+      }
     }
   }
 
@@ -165,7 +173,6 @@ function sumWithout4andNext(array) {
   }
   return sum - count;
 }
-sumWithout4andNext([4, 4, 1, 2]);
 
 //   let sum = 0;
 //   let skipNext = false;
