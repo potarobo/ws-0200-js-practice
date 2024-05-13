@@ -138,41 +138,51 @@ function isPrime(num) {
  */
 function sumWithout4andNext(array) {
   let sum = 0;
-  let count = 0;
-
-  const hasArr = array.some((value, index) => {
-    array[index] === 4 && array[index + 1] === 4;
-  });
-
-  if (hasArr) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] === 4 && array[i + 1] === 4) {
-        array.splice(i + 2, 1);
-        console.log(`array:${array}`);
-      }
+  for (let i = 0; i < array.length; i++) {
+    if (array[i - 1] === 4 || array[i] === 4) {
+      continue;
     }
-  } else {
-    for (let l = 0; l < array.length; l++) {
-      if (array[l] === 4 && array[l + 1] !== 4) {
-        array.splice(l + 1, 1);
-        console.log(`array:${array}`);
-      }
-    }
+    sum += array[i];
   }
-
-  for (let j = 0; j < array.length; j++) {
-    if (array[j] === 4) {
-      count++;
-      console.log(`count:${count}`);
-    }
-  }
-  count *= 4;
-
-  for (let k = 0; k < array.length; k++) {
-    sum += array[k];
-  }
-  return sum - count;
+  return sum;
 }
+
+//   let sum = 0;
+//   let count = 0;
+
+//   const hasArr = array.some((value, index) => {
+//     array[index] === 4 && array[index + 1] === 4;
+//   });
+
+//   if (hasArr) {
+//     for (let i = 0; i < array.length; i++) {
+//       if (array[i] === 4 && array[i + 1] === 4) {
+//         array.splice(i + 2, 1);
+//         console.log(`array:${array}`);
+//       }
+//     }
+//   } else {
+//     for (let l = 0; l < array.length; l++) {
+//       if (array[l] === 4 && array[l + 1] !== 4) {
+//         array.splice(l + 1, 1);
+//         console.log(`array:${array}`);
+//       }
+//     }
+//   }
+
+//   for (let j = 0; j < array.length; j++) {
+//     if (array[j] === 4) {
+//       count++;
+//       console.log(`count:${count}`);
+//     }
+//   }
+//   count *= 4;
+
+//   for (let k = 0; k < array.length; k++) {
+//     sum += array[k];
+//   }
+//   return sum - count;
+// }
 
 //   let sum = 0;
 //   let skipNext = false;
